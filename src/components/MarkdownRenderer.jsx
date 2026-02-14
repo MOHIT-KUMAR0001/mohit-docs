@@ -6,7 +6,7 @@ export default function MarkdownRenderer({ content }) {
 
   return (
     <div
-      className="prose prose-lg dark:prose-invert max-w-none"
+      className="prose prose-lg dark:prose-invert max-w-none markdown-body flex-1"
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );

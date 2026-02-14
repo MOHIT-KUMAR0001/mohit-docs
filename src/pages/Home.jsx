@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 export default function Home({ manifest }) {
-  // Group by category for stats and display
+  // 1. Group by category for stats and display
   const categories = manifest.reduce((acc, doc) => {
     const category = doc.category || 'General';
     if (!acc[category]) {
@@ -14,7 +14,7 @@ export default function Home({ manifest }) {
   const categoryCount = Object.keys(categories).length;
   const recentDocs = manifest.slice(0, 6);
 
-  // Empty state
+  // 2. Empty state
   if (manifest.length === 0) {
     return (
       <div className="min-h-screen flex items-center justify-center p-6 animate-fadeIn">
@@ -50,13 +50,14 @@ export default function Home({ manifest }) {
     );
   }
 
+  // 3. Main content (One single return statement)
   return (
     <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 animate-fadeIn">
-      {/* Hero Section with Animated Background */}
+      {/* Hero Section */}
       <div className="relative text-center mb-20 py-12">
         <div className="absolute inset-0 bg-gradient-to-r from-brand-500/10 via-purple-500/10 to-brand-500/10 dark:from-brand-500/5 dark:via-purple-500/5 dark:to-brand-500/5 blur-3xl animate-pulse-slow"></div>
         <div className="relative">
-          <h1 className="text-6xl sm:text-7xl md:text-8xl font-extrabold bg-gradient-to-r from-brand-500 via-brand-600 to-purple-600 dark:from-brand-400 dark:via-brand-500 dark:to-purple-500 bg-clip-text text-transparent mb-6 animate-slideUp">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl font-extrabold bg-gradient-to-r from-brand-500 via-brand-600 to-purple-600 dark:from-brand-400 dark:via-brand-500 dark:to-purple-500 bg-clip-text text-transparent mb-6">
             Mohit's Documentation
           </h1>
           <p className="text-xl sm:text-2xl text-gray-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed font-medium">
@@ -65,9 +66,9 @@ export default function Home({ manifest }) {
         </div>
       </div>
 
-      {/* Stats with Glass Morphism */}
+      {/* Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto mb-20">
-        <div className="glass-card rounded-2xl p-8 text-center shadow-lift hover-lift hover:shadow-glow transition-all duration-300">
+        <div className="glass-card rounded-2xl p-8 text-center shadow-lift hover:shadow-glow transition-all duration-300">
           <div className="text-6xl font-extrabold bg-gradient-to-br from-brand-500 to-brand-700 bg-clip-text text-transparent mb-3">
             {manifest.length}
           </div>
@@ -75,7 +76,7 @@ export default function Home({ manifest }) {
             Documents
           </div>
         </div>
-        <div className="glass-card rounded-2xl p-8 text-center shadow-lift hover-lift hover:shadow-glow transition-all duration-300">
+        <div className="glass-card rounded-2xl p-8 text-center shadow-lift hover:shadow-glow transition-all duration-300">
           <div className="text-6xl font-extrabold bg-gradient-to-br from-purple-500 to-pink-600 bg-clip-text text-transparent mb-3">
             {categoryCount}
           </div>
@@ -165,96 +166,12 @@ export default function Home({ manifest }) {
               <p className="text-sm text-gray-600 dark:text-slate-400 mb-6 line-clamp-2 leading-relaxed">
                 {doc.description}
               </p>
-              {doc.tags.length > 0 && (
+              {doc.tags && doc.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-200 dark:border-slate-700">
                   {doc.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
                       className="text-xs text-brand-600 dark:text-brand-400 font-medium"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </Link>
-          ))}
-        </div>
-      </section>
-    </div>
-  );
-}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Object.entries(categories)
-            .sort(([a], [b]) => {
-              if (a === 'General') return -1;
-              if (b === 'General') return 1;
-              return a.localeCompare(b);
-            })
-            .map(([category, docs]) => (
-              <Link
-                key={category}
-                to={`/docs/${docs[0].slug}`}
-                className="group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-lg transition-all"
-              >
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
-                  {category}
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                  {docs.length} {docs.length === 1 ? 'document' : 'documents'}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {docs.slice(0, 3).map((doc) => (
-                    <span
-                      key={doc.slug}
-                      className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded"
-                    >
-                      {doc.title.length > 20 ? doc.title.substring(0, 20) + '...' : doc.title}
-                    </span>
-                  ))}
-                  {docs.length > 3 && (
-                    <span className="text-xs px-2 py-1 text-gray-500 dark:text-gray-400">
-                      +{docs.length - 3} more
-                    </span>
-                  )}
-                </div>
-              </Link>
-            ))}
-        </div>
-      </section>
-
-      {/* Recent Notes */}
-      <section>
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">
-          Recent Notes
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {recentDocs.map((doc) => (
-            <Link
-              key={doc.slug}
-              to={`/docs/${doc.slug}`}
-              className="group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-lg transition-all"
-            >
-              <div className="flex items-start justify-between mb-3">
-                <span className="text-xs px-2 py-1 rounded bg-brand-100 dark:bg-brand-900 text-brand-700 dark:text-brand-300 font-medium">
-                  {doc.category}
-                </span>
-                <span className="text-xs text-gray-500 dark:text-gray-400">
-                  {doc.readingTime} min read
-                </span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
-                {doc.title}
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
-                {doc.description}
-              </p>
-              {doc.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2">
-                  {doc.tags.slice(0, 3).map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs text-gray-500 dark:text-gray-400"
                     >
                       #{tag}
                     </span>

@@ -42,7 +42,7 @@ export default function TableOfContents({ content }) {
   }
 
   return (
-    <div className="hidden xl:block fixed right-8 top-32 w-72 max-h-[calc(100vh-10rem)] overflow-y-auto scrollbar-thin animate-fadeIn">
+    <div className="hidden xl:block sticky right-8 top-32 w-72 max-h-[calc(100vh-10rem)] overflow-y-auto scrollbar-thin animate-fadeIn">
       <div className="glass-card rounded-2xl p-6 shadow-elegant sticky top-0">
         <div className="flex items-center gap-2 mb-4 pb-3 border-b border-gray-200 dark:border-slate-700">
           <svg className="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -6,10 +6,6 @@ const HIGHLIGHT_THEME_KEY = 'highlight-theme';
 // Available themes
 export const MARKDOWN_THEMES = {
   DEFAULT: 'default',
-  OCEAN: 'ocean',
-  SUNSET: 'sunset',
-  FOREST: 'forest',
-  MIDNIGHT: 'midnight',
 };
 
 export const HIGHLIGHT_THEMES = {
@@ -22,10 +18,6 @@ export const HIGHLIGHT_THEMES = {
 
 export const MARKDOWN_THEME_LABELS = {
   [MARKDOWN_THEMES.DEFAULT]: 'Default Elegant',
-  [MARKDOWN_THEMES.OCEAN]: 'Ocean Blue',
-  [MARKDOWN_THEMES.SUNSET]: 'Sunset Warm',
-  [MARKDOWN_THEMES.FOREST]: 'Forest Nature',
-  [MARKDOWN_THEMES.MIDNIGHT]: 'Midnight Dark',
 };
 
 export const HIGHLIGHT_THEME_LABELS = {
