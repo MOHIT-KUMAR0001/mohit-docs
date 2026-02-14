@@ -1,0 +1,125 @@
+/* Nord Theme for Code Highlighting */
+
+.highlight-theme-nord .hljs {
+  background: #2e3440;
+  color: #d8dee9;
+}
+
+.highlight-theme-nord .hljs-subst {
+  color: #d8dee9;
+}
+
+.highlight-theme-nord .hljs-selector-tag {
+  color: #81a1c1;
+}
+
+.highlight-theme-nord .hljs-selector-id {
+  color: #8fbcbb;
+  font-weight: bold;
+}
+
+.highlight-theme-nord .hljs-selector-class {
+  color: #8fbcbb;
+}
+
+.highlight-theme-nord .hljs-selector-attr {
+  color: #8fbcbb;
+}
+
+.highlight-theme-nord .hljs-selector-pseudo {
+  color: #88c0d0;
+}
+
+.highlight-theme-nord .hljs-addition {
+  background-color: #a3be8c;
+  color: #2e3440;
+}
+
+.highlight-theme-nord .hljs-deletion {
+  background-color: #bf616a;
+  color: #2e3440;
+}
+
+.highlight-theme-nord .hljs-built_in,
+.highlight-theme-nord .hljs-type,
+.highlight-theme-nord .hljs-class {
+  color: #8fbcbb;
+}
+
+.highlight-theme-nord .hljs-function,
+.highlight-theme-nord .hljs-title,
+.highlight-theme-nord .hljs-title.function_ {
+  color: #88c0d0;
+}
+
+.highlight-theme-nord .hljs-keyword,
+.highlight-theme-nord .hljs-literal,
+.highlight-theme-nord .hljs-symbol,
+.highlight-theme-nord .hljs-name {
+  color: #81a1c1;
+}
+
+.highlight-theme-nord .hljs-comment,
+.highlight-theme-nord .hljs-quote {
+  color: #616e88;
+  font-style: italic;
+}
+
+.highlight-theme-nord .hljs-number,
+.highlight-theme-nord .hljs-regexp,
+.highlight-theme-nord .hljs-string,
+.highlight-theme-nord .hljs-meta .hljs-string {
+  color: #b48ead;
+}
+
+.highlight-theme-nord .hljs-variable,
+.highlight-theme-nord .hljs-template-variable,
+.highlight-theme-nord .hljs-tag,
+.highlight-theme-nord .hljs-attr {
+  color: #d8dee9;
+}
+
+.highlight-theme-nord .hljs-attribute {
+  color: #8fbcbb;
+}
+
+.highlight-theme-nord .hljs-params {
+  color: #d8dee9;
+}
+
+.highlight-theme-nord .hljs-meta {
+  color: #5e81ac;
+}
+
+.highlight-theme-nord .hljs-title.class_,
+.highlight-theme-nord .hljs-title.class_.inherited__ {
+  color: #8fbcbb;
+}
+
+.highlight-theme-nord .hljs-doctag {
+  color: #8fbcbb;
+}
+
+.highlight-theme-nord .hljs-link {
+  color: #88c0d0;
+}
+
+.highlight-theme-nord .hljs-bullet {
+  color: #81a1c1;
+}
+
+.highlight-theme-nord .hljs-code {
+  color: #88c0d0;
+}
+
+.highlight-theme-nord .hljs-emphasis {
+  font-style: italic;
+}
+
+.highlight-theme-nord .hljs-strong {
+  font-weight: bold;
+}
+
+.highlight-theme-nord .hljs-formula {
+  color: #8fbcbb;
+}

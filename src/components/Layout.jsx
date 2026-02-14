@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import SearchBar from './SearchBar';
 import Sidebar from './Sidebar';
+import MarkdownThemeSelector from './MarkdownThemeSelector';
 
 export default function Layout({ children, manifest }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   // Keyboard shortcut for search (Cmd+K or Ctrl+K)
   useEffect(() => {
@@ -21,17 +23,29 @@ export default function Layout({ children, manifest }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // Handle scroll for header shadow
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-white dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 h-16 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 z-30">
-        <div className="h-full px-4 flex items-center justify-between">
+      <header className={`fixed top-0 left-0 right-0 h-18 glass border-b z-30 transition-all duration-300 ${
+        scrolled ? 'shadow-elegant border-gray-300 dark:border-slate-600' : 'border-gray-200/50 dark:border-slate-700/50'
+      }`}>
+        <div className="h-full px-6 flex items-center justify-between">
           {/* Left side */}
           <div className="flex items-center gap-4">
             {/* Mobile menu button */}
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="lg:hidden p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-slate-800 transition-all duration-200 hover:scale-110"
               aria-label="Toggle menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -41,32 +55,35 @@ export default function Layout({ children, manifest }) {
 
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 via-brand-600 to-brand-700 flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:shadow-glow transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
                 M
               </div>
-              <span className="text-xl font-bold text-gray-900 dark:text-gray-100 hidden sm:block">
+              <span className="text-xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-slate-50 dark:via-slate-100 dark:to-slate-50 bg-clip-text text-transparent hidden sm:block">
                 Mohit's Docs
               </span>
             </Link>
           </div>
 
           {/* Right side */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             {/* Search button */}
             <button
               onClick={() => setSearchOpen(true)}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-slate-800 transition-all duration-200 hover:scale-105 group"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
-              <span className="hidden sm:inline text-sm text-gray-600 dark:text-gray-400">
+              <span className="hidden sm:inline text-sm text-gray-600 dark:text-slate-400 font-medium">
                 Search
               </span>
-              <kbd className="hidden md:inline-block px-2 py-1 text-xs font-mono text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded">
+              <kbd className="hidden md:inline-block px-2.5 py-1 text-xs font-mono text-gray-500 dark:text-slate-400 bg-gray-100 dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-700 shadow-sm">
                 ⌘K
               </kbd>
             </button>
+
+            {/* Markdown Theme Selector */}
+            <MarkdownThemeSelector />
 
             {/* Theme toggle */}
             <ThemeToggle />
@@ -76,7 +93,7 @@ export default function Layout({ children, manifest }) {
               href="https://github.com/MOHIT-KUMAR0001"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-slate-800 transition-all duration-200 hover:scale-110"
               aria-label="GitHub"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -95,7 +112,7 @@ export default function Layout({ children, manifest }) {
       />
 
       {/* Main content area */}
-      <div className="flex pt-16">
+      <div className="flex pt-18">
         {/* Sidebar */}
         <Sidebar
           manifest={manifest}

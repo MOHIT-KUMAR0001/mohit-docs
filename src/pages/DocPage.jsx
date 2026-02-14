@@ -41,11 +41,11 @@ export default function DocPage({ manifest }) {
 
   if (loading) {
     return (
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-16 animate-fadeIn">
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
-            <div className="inline-block w-12 h-12 border-4 border-brand-500 border-t-transparent rounded-full animate-spin mb-4"></div>
-            <p className="text-gray-600 dark:text-gray-400">Loading document...</p>
+            <div className="inline-block w-16 h-16 border-4 border-brand-500 border-t-transparent rounded-full animate-spin mb-6"></div>
+            <p className="text-lg text-gray-600 dark:text-slate-400 font-medium">Loading document...</p>
           </div>
         </div>
       </div>
@@ -54,18 +54,18 @@ export default function DocPage({ manifest }) {
 
   if (error || !doc) {
     return (
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-16 animate-fadeIn">
         <div className="text-center min-h-[60vh] flex flex-col items-center justify-center">
-          <div className="text-6xl mb-4">📄</div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+          <div className="text-8xl mb-8 animate-float">📄</div>
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-slate-50 dark:to-slate-300 bg-clip-text text-transparent mb-6">
             Document Not Found
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mb-8">
+          <p className="text-lg text-gray-600 dark:text-slate-400 mb-10 max-w-md">
             The document you're looking for doesn't exist or has been moved.
           </p>
           <Link
             to="/"
-            className="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-lg transition-colors"
+            className="px-8 py-4 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-glow transition-all duration-300 hover:scale-105"
           >
             Back to Home
           </Link>
@@ -81,59 +81,75 @@ export default function DocPage({ manifest }) {
   });
 
   return (
-    <div className="relative">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="relative animate-fadeIn">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-8">
-          <Link to="/" className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+        <nav className="flex items-center gap-2.5 text-sm mb-10 glass-card px-4 py-3 rounded-xl w-fit">
+          <Link to="/" className="text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition-colors font-medium flex items-center gap-1.5 group">
+            <svg className="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
             Home
           </Link>
-          <span>/</span>
-          <span className="text-gray-400 dark:text-gray-500">{doc.category}</span>
-          <span>/</span>
-          <span className="text-gray-900 dark:text-gray-100">{doc.title}</span>
+          <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+          <span className="text-gray-500 dark:text-slate-500 font-medium">{doc.category}</span>
+          <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+          <span className="text-gray-900 dark:text-slate-100 font-semibold">{doc.title}</span>
         </nav>
 
         {/* Document Header */}
-        <header className="mb-12">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="px-3 py-1 rounded-lg bg-brand-100 dark:bg-brand-900 text-brand-700 dark:text-brand-300 text-sm font-medium">
+        <header className="mb-16">
+          <div className="flex flex-wrap items-center gap-4 mb-6">
+            <span className="px-4 py-2 rounded-xl bg-gradient-to-r from-brand-500 to-brand-600 text-white text-sm font-bold uppercase tracking-wide shadow-lg">
               {doc.category}
             </span>
-            <span className="text-sm text-gray-600 dark:text-gray-400">
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-slate-400 font-medium">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               {doc.readingTime} min read
-            </span>
-            <span className="text-sm text-gray-600 dark:text-gray-400">•</span>
-            <span className="text-sm text-gray-600 dark:text-gray-400">
+            </div>
+            <span className="text-sm text-gray-400 dark:text-slate-500">•</span>
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-slate-400 font-medium">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
               Updated {formattedDate}
-            </span>
+            </div>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-slate-50 dark:via-slate-100 dark:to-slate-50 bg-clip-text text-transparent mb-6 leading-tight">
             {doc.title}
           </h1>
           {doc.description && (
-            <p className="text-xl text-gray-600 dark:text-gray-400">
+            <p className="text-xl sm:text-2xl text-gray-600 dark:text-slate-400 leading-relaxed max-w-3xl">
               {doc.description}
             </p>
           )}
         </header>
 
         {/* Document Content */}
-        <article className="mb-12">
+        <article className="mb-16 glass-card rounded-2xl p-8 sm:p-10 lg:p-12 shadow-elegant">
           <MarkdownRenderer content={content} />
         </article>
 
         {/* Tags */}
         {doc.tags.length > 0 && (
-          <div className="border-t border-gray-200 dark:border-gray-700 pt-8 mb-8">
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3">
+          <div className="glass-card rounded-2xl p-8 mb-12 shadow-elegant">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-slate-100 mb-4 flex items-center gap-2">
+              <svg className="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+              </svg>
               Tags
             </h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3">
               {doc.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg text-sm"
+                  className="px-4 py-2 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-300 rounded-xl text-sm font-semibold hover:bg-brand-100 dark:hover:bg-brand-900 hover:text-brand-700 dark:hover:text-brand-300 transition-all duration-200 cursor-pointer hover:scale-105"
                 >
                   #{tag}
                 </span>
@@ -143,12 +159,12 @@ export default function DocPage({ manifest }) {
         )}
 
         {/* Back to home link */}
-        <div className="border-t border-gray-200 dark:border-gray-700 pt-8">
+        <div className="glass-card rounded-2xl p-6 shadow-elegant">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition-colors"
+            className="inline-flex items-center gap-3 text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition-all duration-200 font-semibold text-lg group"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
             Back to Home
