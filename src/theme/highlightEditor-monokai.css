@@ -1,0 +1,89 @@
+/* Monokai Theme for Code Highlighting */
+
+.highlight-theme-monokai .hljs {
+  background: #272822;
+  color: #f8f8f2;
+}
+
+.highlight-theme-monokai .hljs-tag,
+.highlight-theme-monokai .hljs-keyword,
+.highlight-theme-monokai .hljs-selector-tag,
+.highlight-theme-monokai .hljs-literal,
+.highlight-theme-monokai .hljs-strong,
+.highlight-theme-monokai .hljs-name {
+  color: #f92672;
+}
+
+.highlight-theme-monokai .hljs-code {
+  color: #66d9ef;
+}
+
+.highlight-theme-monokai .hljs-class .hljs-title,
+.highlight-theme-monokai .hljs-title,
+.highlight-theme-monokai .hljs-title.function_ {
+  color: #a6e22e;
+}
+
+.highlight-theme-monokai .hljs-attribute,
+.highlight-theme-monokai .hljs-symbol,
+.highlight-theme-monokai .hljs-regexp,
+.highlight-theme-monokai .hljs-link {
+  color: #bf79db;
+}
+
+.highlight-theme-monokai .hljs-string,
+.highlight-theme-monokai .hljs-bullet,
+.highlight-theme-monokai .hljs-subst,
+.highlight-theme-monokai .hljs-title.class_,
+.highlight-theme-monokai .hljs-title.class_.inherited__,
+.highlight-theme-monokai .hljs-addition,
+.highlight-theme-monokai .hljs-variable,
+.highlight-theme-monokai .hljs-template-tag,
+.highlight-theme-monokai .hljs-template-variable {
+  color: #e6db74;
+}
+
+.highlight-theme-monokai .hljs-comment,
+.highlight-theme-monokai .hljs-quote {
+  color: #75715e;
+  font-style: italic;
+}
+
+.highlight-theme-monokai .hljs-number,
+.highlight-theme-monokai .hljs-built_in,
+.highlight-theme-monokai .hljs-selector-attr,
+.highlight-theme-monokai .hljs-selector-pseudo,
+.highlight-theme-monokai .hljs-selector-id {
+  color: #ae81ff;
+}
+
+.highlight-theme-monokai .hljs-meta,
+.highlight-theme-monokai .hljs-meta .hljs-keyword,
+.highlight-theme-monokai .hljs-doctag,
+.highlight-theme-monokai .hljs-params {
+  color: #66d9ef;
+}
+
+.highlight-theme-monokai .hljs-attr {
+  color: #a6e22e;
+}
+
+.highlight-theme-monokai .hljs-deletion {
+  color: #f92672;
+}
+
+.highlight-theme-monokai .hljs-section {
+  color: #e6db74;
+}
+
+.highlight-theme-monokai .hljs-emphasis {
+  font-style: italic;
+}
+
+.highlight-theme-monokai .hljs-strong {
+  font-weight: bold;
+}
+
+.highlight-theme-monokai .hljs-formula {
+  color: #66d9ef;
+}

@@ -1,0 +1,97 @@
+/* Dracula Theme for Code Highlighting */
+
+.highlight-theme-dracula .hljs {
+  background: #282a36;
+  color: #f8f8f2;
+}
+
+.highlight-theme-dracula .hljs-built_in,
+.highlight-theme-dracula .hljs-selector-tag,
+.highlight-theme-dracula .hljs-section,
+.highlight-theme-dracula .hljs-link {
+  color: #8be9fd;
+}
+
+.highlight-theme-dracula .hljs-keyword {
+  color: #ff79c6;
+}
+
+.highlight-theme-dracula .hljs-title,
+.highlight-theme-dracula .hljs-title.class_,
+.highlight-theme-dracula .hljs-title.class_.inherited__,
+.highlight-theme-dracula .hljs-title.function_ {
+  color: #50fa7b;
+}
+
+.highlight-theme-dracula .hljs-attr,
+.highlight-theme-dracula .hljs-variable,
+.highlight-theme-dracula .hljs-template-variable,
+.highlight-theme-dracula .hljs-type {
+  color: #f1fa8c;
+}
+
+.highlight-theme-dracula .hljs-string,
+.highlight-theme-dracula .hljs-symbol,
+.highlight-theme-dracula .hljs-bullet,
+.highlight-theme-dracula .hljs-addition,
+.highlight-theme-dracula .hljs-regexp,
+.highlight-theme-dracula .hljs-selector-attr,
+.highlight-theme-dracula .hljs-selector-pseudo {
+  color: #f1fa8c;
+}
+
+.highlight-theme-dracula .hljs-meta,
+.highlight-theme-dracula .hljs-doctag {
+  color: #ff79c6;
+}
+
+.highlight-theme-dracula .hljs-name,
+.highlight-theme-dracula .hljs-selector-id,
+.highlight-theme-dracula .hljs-selector-class {
+  color: #50fa7b;
+}
+
+.highlight-theme-dracula .hljs-number,
+.highlight-theme-dracula .hljs-literal {
+  color: #bd93f9;
+}
+
+.highlight-theme-dracula .hljs-quote,
+.highlight-theme-dracula .hljs-comment,
+.highlight-theme-dracula .hljs-deletion {
+  color: #6272a4;
+  font-style: italic;
+}
+
+.highlight-theme-dracula .hljs-params {
+  color: #ffb86c;
+}
+
+.highlight-theme-dracula .hljs-attribute {
+  color: #50fa7b;
+}
+
+.highlight-theme-dracula .hljs-tag {
+  color: #ff79c6;
+}
+
+.highlight-theme-dracula .hljs-code {
+  color: #8be9fd;
+}
+
+.highlight-theme-dracula .hljs-formula {
+  color: #ff79c6;
+}
+
+.highlight-theme-dracula .hljs-emphasis {
+  font-style: italic;
+}
+
+.highlight-theme-dracula .hljs-strong {
+  font-weight: bold;
+  color: #ffb86c;
+}
+
+.highlight-theme-dracula .hljs-subst {
+  color: #f8f8f2;
+}
